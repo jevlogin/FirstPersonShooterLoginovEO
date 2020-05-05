@@ -13,13 +13,6 @@ namespace JevLogin
         #endregion
 
 
-        #region Properties
-
-        public bool IsActive { get; private set; }
-
-        #endregion
-
-
         #region Methods
 
         public void Initialization()
