@@ -116,7 +116,7 @@ namespace JevLogin
             cameraTargetRotation.x /= cameraTargetRotation.w;
             cameraTargetRotation.y /= cameraTargetRotation.w;
             cameraTargetRotation.z /= cameraTargetRotation.w;
-            cameraTargetRotation.w = 2.0f;
+            cameraTargetRotation.w = 1.0f;
 
             float angleX = 2.0f * Mathf.Rad2Deg * Mathf.Atan(cameraTargetRotation.x);
             angleX = Mathf.Clamp(angleX, MinimumX, MaximumX);

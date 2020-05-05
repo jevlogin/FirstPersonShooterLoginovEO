@@ -8,7 +8,7 @@ namespace JevLogin
     {
         #region Fields
 
-        [SerializeField] private float _batteryChargeMax;
+        [SerializeField] private float _batteryChargeMax = 10;
         [SerializeField] private float _speed = 11;
 
         private Light _light;
@@ -31,7 +31,9 @@ namespace JevLogin
         {
             base.Awake();
             _light = GetComponent<Light>();
+            _light.enabled = false;
             _goFollow = Camera.main.transform;
+            transform.position = _goFollow.position;
             _vectorOffset = Transform.position - _goFollow.position;
             BatteryChargeCurrent = _batteryChargeMax;
         }
@@ -70,6 +72,10 @@ namespace JevLogin
             {
                 BatteryChargeCurrent -= Time.deltaTime;
                 return true;
+            }
+            else if (BatteryChargeCurrent <= 0)
+            {
+                BatteryChargeCurrent = _batteryChargeMax;
             }
             return false;
         }

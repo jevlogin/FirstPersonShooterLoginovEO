@@ -28,10 +28,10 @@ namespace JevLogin
                 return;
             }
 
-            _flashLightModel.Rotation();
 
             if (_flashLightModel.EditBatteryCharge())
             {
+                _flashLightModel.Rotation();
                 _flashLightUi.Text = _flashLightModel.BatteryChargeCurrent;
             }
             else
