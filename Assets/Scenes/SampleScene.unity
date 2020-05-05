@@ -250,7 +250,7 @@ GameObject:
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: 5721338939258241955, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -751,7 +751,7 @@ Light:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1057247994}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 10
   m_Type: 0
   m_Shape: 0
@@ -813,7 +813,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1057247994}
   m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: -0.21, y: 4.86, z: -4.54}
+  m_LocalPosition: {x: 2, y: 2, z: 2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
