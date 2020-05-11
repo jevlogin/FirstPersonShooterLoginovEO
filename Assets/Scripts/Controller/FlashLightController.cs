@@ -8,7 +8,6 @@ namespace JevLogin
         #region Fields
 
         private FlashLightModel _flashLightModel;
-        private FlashLightUi _flashLightUi;
 
         #endregion
 
@@ -17,22 +16,47 @@ namespace JevLogin
 
         public void Initialization()
         {
-            _flashLightModel = Object.FindObjectOfType<FlashLightModel>();
-            _flashLightUi = Object.FindObjectOfType<FlashLightUi>();
+            UiInterface.FlashLightUiText.SetActive(false);
+            UiInterface.FlashLightUiBar.SetActive(false);
         }
 
-        public void Execute()
+        public override void On(params BaseObjectScene[] flashLight)
         {
-            if (!IsActive)
+            if (IsActive) return;
+
+            if (flashLight.Length > 0)
             {
-                return;
+                _flashLightModel = flashLight[0] as FlashLightModel;    //todo Нужно пояснение к этой строке...
             }
 
-            _flashLightModel.Rotation();
+            if (_flashLightModel == null) return;
+
+            if (_flashLightModel.BatteryChargeCurrent <= 0) return;
+
+            base.On(_flashLightModel);
+
+            _flashLightModel.Switch(FlashLightActiveType.On);
+
+            UiInterface.FlashLightUiText.SetActive(true);
+            UiInterface.FlashLightUiBar.SetActive(true);
+            UiInterface.FlashLightUiBar.SetColor(Color.green);
+
+        }
+        public void Execute()
+        {
+            if (!IsActive) return;
 
             if (_flashLightModel.EditBatteryCharge())
             {
-                _flashLightUi.Text = _flashLightModel.BatteryChargeCurrent;
+                UiInterface.FlashLightUiText.Text = _flashLightModel.BatteryChargeCurrent;
+                UiInterface.FlashLightUiBar.Fill = _flashLightModel.Charge;
+
+                _flashLightModel.Rotation();
+
+                if (_flashLightModel.LowBattery())
+                {
+                    UiInterface.FlashLightUiBar.SetColor(Color.red);
+                }
             }
             else
             {
@@ -40,35 +64,15 @@ namespace JevLogin
             }
         }
 
-        public override void On()
-        {
-            if (IsActive)
-            {
-                return;
-            }
-
-            if (_flashLightModel.BatteryChargeCurrent <= 0)
-            {
-                return;
-            }
-
-            base.On();
-
-            _flashLightModel.Switch(FlashLightActiveType.On);
-            _flashLightUi.SetActive(true);
-        }
-
         public override void Off()
         {
-            if (!IsActive)
-            {
-                return;
-            }
+            if (!IsActive) return;
 
             base.Off();
 
             _flashLightModel.Switch(FlashLightActiveType.Off);
-            _flashLightUi.SetActive(false);
+            UiInterface.FlashLightUiBar.SetActive(false);
+            UiInterface.FlashLightUiText.SetActive(false);
         }
 
         #endregion
