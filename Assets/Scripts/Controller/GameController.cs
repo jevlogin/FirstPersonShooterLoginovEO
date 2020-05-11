@@ -16,6 +16,7 @@ namespace JevLogin
 
         private void Start()
         {
+            CustomDebug.IsDebug = false;
             _controllers = new Controllers();
             _controllers.Initialization();
         }
