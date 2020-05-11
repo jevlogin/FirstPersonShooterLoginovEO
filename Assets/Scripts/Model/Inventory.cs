@@ -24,7 +24,6 @@ namespace JevLogin
         }
 
         //todo добавить функционал
-
         public void RemoveWeapon(Weapon weapon)
         {
 

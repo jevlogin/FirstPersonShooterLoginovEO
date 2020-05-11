@@ -65,10 +65,10 @@ namespace JevLogin
                 }
             }
 
-            //ServiceLocator.Resolve<Inventory>().Initialization();
-            //ServiceLocator.Resolve<PlayerController>().On();
-            //ServiceLocator.Resolve<SelectionController>().On();
-            //ServiceLocator.Resolve<InputController>().On();
+            ServiceLocator.Resolve<Inventory>().Initialization();
+            ServiceLocator.Resolve<PlayerController>().On();
+            ServiceLocator.Resolve<SelectionController>().On();
+            ServiceLocator.Resolve<InputController>().On();
         }
 
         #endregion
