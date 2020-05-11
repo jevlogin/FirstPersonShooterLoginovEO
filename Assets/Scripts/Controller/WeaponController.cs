@@ -2,7 +2,14 @@
 {
     public class WeaponController : BaseController
     {
+        #region Fields
+
         private Weapon _weapon;
+
+        #endregion
+
+
+        #region Methods
 
         public override void On(params BaseObjectScene[] weapon)
         {
@@ -38,5 +45,7 @@
             _weapon.ReloadClip();
             UiInterface.WeaponUiText.ShowData(_weapon.Clip.CountAmmunition, _weapon.CountClip);
         }
+
+        #endregion
     }
 }

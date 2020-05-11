@@ -1,7 +1,7 @@
 ﻿namespace JevLogin
 {
-	public interface IExecute
-	{
-		void Execute();
-	}
+    public interface IExecute
+    {
+        void Execute();
+    }
 }

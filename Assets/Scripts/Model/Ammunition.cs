@@ -1,18 +1,26 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 
 
 namespace JevLogin
 {
     public abstract class Ammunition : BaseObjectScene
     {
+        #region Fields
+
         [SerializeField] private float _timeToDestruct = 10.0f;
         [SerializeField] private float _baseDamage = 10.0f;
-        protected float _curDamage; //todo сделать свой
+
         private float _lossOfDamageAtTime = 0.2f;
         private ITimeRemaining _timeRemaining;
 
+        protected float _curDamage; //todo сделать свой
+
         public AmmunitionType Type = AmmunitionType.Bullet;
+
+        #endregion
+
+
+        #region UnityMethods
 
         protected override void Awake()
         {
@@ -26,6 +34,11 @@ namespace JevLogin
             _timeRemaining = new TimeRemaining(LossOfDamage, 1.0f, true);
             _timeRemaining.AddTimeRemaining();
         }
+
+        #endregion
+
+
+        #region Methods
 
         public void AddForce(Vector3 direction)
         {
@@ -46,5 +59,6 @@ namespace JevLogin
             //todo вернуть в pool
         }
 
+        #endregion
     }
 }

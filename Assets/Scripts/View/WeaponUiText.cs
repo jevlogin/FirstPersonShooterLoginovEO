@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 
+
 namespace JevLogin
 {
     public class WeaponUiText : MonoBehaviour
@@ -12,7 +13,7 @@ namespace JevLogin
         #endregion
 
 
-        #region ClassLifeCycle
+        #region UnityMethods
 
         private void Awake()
         {

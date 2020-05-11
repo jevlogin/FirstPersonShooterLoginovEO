@@ -2,7 +2,7 @@
 using UnityEngine.UI;
 
 
-public class FlashLightUiBar : MonoBehaviour
+public sealed class FlashLightUiBar : MonoBehaviour
 {
     #region Fields
 
