@@ -6,13 +6,7 @@ namespace JevLogin
 {
     public abstract class Weapon : BaseObjectScene
     {
-        private int _maxCountAmmunition = 40;
-        private int _minCountAmmunition = 20;
-        private int _countClip = 5;
-        public Ammunition Ammunition;
-        public Clip Clip;
-
-        public AmmunitionType[] AmmunitionTypes = { AmmunitionType.Bullet };
+        #region Fields
 
         [SerializeField] protected Transform _barrel;
         [SerializeField] protected float _force = 999.0f;
@@ -20,21 +14,45 @@ namespace JevLogin
 
         private Queue<Clip> _clips = new Queue<Clip>();
 
-        protected bool _isReady = true;
+        private int _maxCountAmmunition = 40;
+        private int _minCountAmmunition = 20;
+        private int _countClip = 5;
+
         protected ITimeRemaining _timeRemaining;
 
+        protected bool _isReady = true;
+
+        public Ammunition Ammunition;
+        public Clip Clip;
+        public AmmunitionType[] AmmunitionTypes = { AmmunitionType.Bullet };
+
+        #endregion
+
+
+        #region Properties
+
         public int CountClip => _clips.Count;
+
+        #endregion
+
+
+        #region UnityMethods
 
         private void Start()
         {
             _timeRemaining = new TimeRemaining(ReadyShoot, _rechargeTime);
 
-            for (var i = 0;  i < _countClip; i++)
+            for (var i = 0; i < _countClip; i++)
             {
                 AddClip(new Clip { CountAmmunition = UnityEngine.Random.Range(_minCountAmmunition, _maxCountAmmunition) });
             }
             ReloadClip();
         }
+
+        #endregion
+
+
+        #region Methods
 
         public void ReloadClip()
         {
@@ -53,5 +71,7 @@ namespace JevLogin
         {
             _isReady = true;
         }
+
+        #endregion
     }
 }
