@@ -114,6 +114,7 @@
     <Compile Include="Assets\Scripts\View\SelectionObjectMessageUi.cs" />
     <Compile Include="Assets\Scripts\View\UiInterface.cs" />
     <Compile Include="Assets\Scripts\View\WeaponUiText.cs" />
+    <Compile Include="Assets\TestMove.cs" />
     <None Include="Assets\SampleScenes\Shaders\Skybox-Procedural.shader" />
     <Reference Include="Unity.Timeline.Editor">
       <HintPath>F:/UnityProject/Warface2/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
