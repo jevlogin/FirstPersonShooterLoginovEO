@@ -2,6 +2,8 @@
 {
     public sealed class Gun : Weapon
     {
+        #region Methods
+
         public override void Fire()
         {
             if (!_isReady) return;
@@ -14,5 +16,7 @@
             _isReady = false;
             _timeRemaining.AddTimeRemaining();
         }
+
+        #endregion
     }
 }

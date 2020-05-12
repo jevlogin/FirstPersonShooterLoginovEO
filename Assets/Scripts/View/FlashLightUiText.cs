@@ -4,7 +4,7 @@ using UnityEngine.UI;
 
 namespace JevLogin
 {
-    public class FlashLightUiText : MonoBehaviour
+    public sealed class FlashLightUiText : MonoBehaviour
     {
         #region Fields
 

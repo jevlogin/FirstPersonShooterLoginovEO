@@ -30,6 +30,9 @@ namespace JevLogin
 
         #endregion
 
+
+        #region Methods
+
         public void Execute()
         {
             if (!IsActive) return;
@@ -85,5 +88,7 @@ namespace JevLogin
 
             _dedicatedObject = gameObject;
         }
+
+        #endregion
     }
 }

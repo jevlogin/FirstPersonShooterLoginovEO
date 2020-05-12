@@ -1,14 +1,26 @@
 ﻿using UnityEngine;
 
+
 namespace JevLogin
 {
     public class Inventory : IInitialization
     {
+        #region Fields
+
         private Weapon[] _weapons = new Weapon[5];
 
-        public Weapon[] Weapons => _weapons;
+        #endregion
 
+
+        #region Properties
+
+        public Weapon[] Weapons => _weapons;
         public FlashLightModel FlashLightModel { get; private set; }
+
+        #endregion
+
+
+        #region Methods
 
         public void Initialization()
         {
@@ -24,10 +36,11 @@ namespace JevLogin
         }
 
         //todo добавить функционал
-
         public void RemoveWeapon(Weapon weapon)
         {
 
         }
+
+        #endregion
     }
 }
