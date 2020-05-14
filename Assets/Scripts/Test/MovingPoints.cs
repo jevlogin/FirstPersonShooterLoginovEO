@@ -69,10 +69,8 @@ namespace JevLogin
                 }
             }
 
-            if (_points.Count <= 0)
-            {
-                return;
-            }
+            if (_points.Count <= 0) return;
+
             if (!_agent.Agent.hasPath)
             {
                 var point = _points.Dequeue();
@@ -83,6 +81,10 @@ namespace JevLogin
 
         private void DrawPoint(Vector3 position)
         {
+            CustomDebug.IsDebug = true;
+            CustomDebug.Log("Добавили точку");
+            CustomDebug.IsDebug = false;
+
             var point = Instantiate(_point, position, Quaternion.identity);
             point.OnFinishChange += MovePoint;
             _points.Enqueue(point.transform.position);
@@ -91,6 +93,10 @@ namespace JevLogin
 
         private void MovePoint(GameObject obj)
         {
+            CustomDebug.IsDebug = true;
+            CustomDebug.Log("Подписались на событие точку");
+            CustomDebug.IsDebug = false;
+
             if (CurrentPoint == obj.transform.position)
             {
                 obj.GetComponent<DestroyPoint>().OnFinishChange -= MovePoint;
