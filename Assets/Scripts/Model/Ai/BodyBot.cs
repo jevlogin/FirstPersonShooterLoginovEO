@@ -1,6 +1,7 @@
 ﻿using System;
 using UnityEngine;
 
+
 namespace JevLogin
 {
     public sealed class BodyBot : MonoBehaviour, ICollision

@@ -2,6 +2,7 @@
 using UnityEngine;
 using UnityEngine.AI;
 
+
 namespace JevLogin
 {
     public sealed class MovingPoints : MonoBehaviour

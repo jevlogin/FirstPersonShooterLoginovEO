@@ -2,6 +2,7 @@
 using UnityEngine;
 using UnityEngine.AI;
 
+
 namespace JevLogin
 {
     public class Bot : BaseObjectScene, IExecute
