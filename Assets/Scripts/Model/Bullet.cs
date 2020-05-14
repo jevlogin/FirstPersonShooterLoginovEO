@@ -13,7 +13,7 @@ namespace JevLogin
 
             if (setDamage != null)
             {
-                setDamage.CollisionEnter(new InfoCollision(_curDamage, Rigidbody.velocity));
+                setDamage.OnCollision(new InfoCollision(_curDamage, collision.contacts[0], collision.transform, Rigidbody.velocity));
             }
 
             DestroyAmmunition();

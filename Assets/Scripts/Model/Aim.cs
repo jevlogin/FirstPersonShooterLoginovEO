@@ -25,7 +25,7 @@ namespace JevLogin
 
         #region Methods
 
-        public void CollisionEnter(InfoCollision info)
+        public void OnCollision(InfoCollision info)
         {
             if (_isDead) return;
             if (HealthPoint > 0)

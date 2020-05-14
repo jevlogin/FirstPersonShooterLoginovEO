@@ -22,10 +22,10 @@ MonoBehaviour:
     y: 30
     width: 2560
     height: 1307
-  m_MinSize: {x: 709, y: 492}
+  m_MinSize: {x: 709, y: 442}
   m_MaxSize: {x: 18004, y: 14042}
   vertical: 0
-  controlID: 13263
+  controlID: 9912
 --- !u!114 &2
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -52,8 +52,10 @@ MonoBehaviour:
     width: 1583
     height: 556
   m_ViewDataDictionary: {fileID: 0}
-  m_SerializedViewsNames: []
-  m_SerializedViewsValues: []
+  m_SerializedViewNames: []
+  m_SerializedViewValues: []
+  m_SerializedCustomFieldsNames: []
+  m_SerializedCustomFieldsValues: []
   m_PlayModeViewName: GameView
   m_ShowGizmos: 0
   m_TargetDisplay: 0
@@ -139,7 +141,7 @@ MonoBehaviour:
   m_MinSize: {x: 201, y: 442}
   m_MaxSize: {x: 4001, y: 8042}
   vertical: 1
-  controlID: 13232
+  controlID: 9838
 --- !u!114 &4
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -159,8 +161,8 @@ MonoBehaviour:
     y: 0
     width: 1584
     height: 730
-  m_MinSize: {x: 200, y: 200}
-  m_MaxSize: {x: 4000, y: 4000}
+  m_MinSize: {x: 201, y: 221}
+  m_MaxSize: {x: 4001, y: 4021}
   m_ActualView: {fileID: 5}
   m_Panes:
   - {fileID: 5}
@@ -203,9 +205,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: -4.8721066, y: 5.011839, z: 6.891835}
+    m_Target: {x: 0.5927324, y: 9.1673355, z: 12.66367}
     speed: 2
-    m_Value: {x: -4.8721066, y: 5.011839, z: 6.891835}
+    m_Value: {x: 0.5927324, y: 9.1673355, z: 12.66367}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -251,13 +253,13 @@ MonoBehaviour:
     m_GridAxis: 1
     m_gridOpacity: 0.5
   m_Rotation:
-    m_Target: {x: -0.46065155, y: 0.022298645, z: -0.012304564, w: -0.88744444}
+    m_Target: {x: 0.051029474, y: 0.9072297, z: -0.40216753, w: 0.114160344}
     speed: 2
-    m_Value: {x: -0.46055806, y: 0.022294119, z: -0.012302066, w: -0.8872643}
+    m_Value: {x: 0.051018223, y: 0.9070297, z: -0.40207887, w: 0.114135176}
   m_Size:
-    m_Target: 22
+    m_Target: 7.400733
     speed: 2
-    m_Value: 22
+    m_Value: 7.400733
   m_Ortho:
     m_Target: 0
     speed: 2
@@ -270,12 +272,12 @@ MonoBehaviour:
     m_EasingEnabled: 1
     m_EasingDuration: 0.4
     m_AccelerationEnabled: 1
-    m_FieldOfView: 90
+    m_FieldOfViewHorizontalOrVertical: 60
     m_NearClip: 0.03
     m_FarClip: 10000
     m_DynamicClip: 1
     m_OcclusionCulling: 0
-  m_LastSceneViewRotation: {x: -0.241227, y: 0.33257163, z: -0.08837972, w: -0.90745735}
+  m_LastSceneViewRotation: {x: -0.03418668, y: 0.9374795, z: -0.09784572, w: -0.33289474}
   m_LastSceneViewOrtho: 0
   m_ReplacementShader: {fileID: 0}
   m_ReplacementString: 
@@ -386,10 +388,10 @@ MonoBehaviour:
     y: 0
     width: 549
     height: 1307
-  m_MinSize: {x: 232, y: 492}
+  m_MinSize: {x: 232, y: 392}
   m_MaxSize: {x: 10002, y: 14042}
   vertical: 1
-  controlID: 13264
+  controlID: 9861
 --- !u!114 &10
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -455,20 +457,20 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets
+    - Assets/Scripts/Test
   m_ViewMode: 1
   m_StartGridSize: 16
   m_LastFolders:
-  - Assets
+  - Assets/Scripts/Test
   m_LastFoldersGridSize: 16
   m_LastProjectPath: F:\UnityProject\Warface2
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: 703a0000
-    m_LastClickedID: 14960
-    m_ExpandedIDs: 00000000703a0000723a0000743a0000763a0000783a00007a3a00007c3a00007e3a0000
+    m_SelectedIDs: 9e3a0000
+    m_LastClickedID: 15006
+    m_ExpandedIDs: 00000000163a0000183a00001a3a00001c3a00001e3a0000203a0000223a0000243a0000983a0000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -496,7 +498,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 00000000703a0000723a0000743a0000763a0000783a00007a3a00007c3a00007e3a0000
+    m_ExpandedIDs: 00000000163a0000183a00001a3a00001c3a00001e3a0000203a0000223a0000243a0000983a0000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -521,9 +523,9 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
   m_ListAreaState:
-    m_SelectedInstanceIDs: 0033ffff
-    m_LastClickedInstanceID: -52480
-    m_HadKeyboardFocusLastEvent: 0
+    m_SelectedInstanceIDs: 5c360000
+    m_LastClickedInstanceID: 13916
+    m_HadKeyboardFocusLastEvent: 1
     m_ExpandedInstanceIDs: da710000b83500000000000042390000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
@@ -562,7 +564,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 12006, guid: 0000000000000000e000000000000000, type: 0}
-  m_Name: SceneHierarchyWindow
+  m_Name: ConsoleWindow
   m_EditorClassIdentifier: 
   m_Children: []
   m_Position:
@@ -571,14 +573,14 @@ MonoBehaviour:
     y: 872
     width: 549
     height: 435
-  m_MinSize: {x: 202, y: 221}
+  m_MinSize: {x: 102, y: 121}
   m_MaxSize: {x: 4002, y: 4021}
-  m_ActualView: {fileID: 13}
+  m_ActualView: {fileID: 14}
   m_Panes:
   - {fileID: 13}
   - {fileID: 14}
-  m_Selected: 0
-  m_LastSelected: 1
+  m_Selected: 1
+  m_LastSelected: 0
 --- !u!114 &13
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -607,10 +609,10 @@ MonoBehaviour:
   m_ViewDataDictionary: {fileID: 0}
   m_SceneHierarchy:
     m_TreeViewState:
-      scrollPos: {x: 0, y: 39}
+      scrollPos: {x: 0, y: 0}
       m_SelectedIDs: 
       m_LastClickedID: 0
-      m_ExpandedIDs: 0033ffff2e44ffff70fbffff92360000ea360000
+      m_ExpandedIDs: 92b5ffff50fbffff2c3500009a3500002836000094360000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -679,8 +681,8 @@ MonoBehaviour:
     y: 0
     width: 427
     height: 1307
-  m_MinSize: {x: 275, y: 50}
-  m_MaxSize: {x: 4000, y: 4000}
+  m_MinSize: {x: 276, y: 71}
+  m_MaxSize: {x: 4001, y: 4021}
   m_ActualView: {fileID: 16}
   m_Panes:
   - {fileID: 16}
@@ -723,7 +725,7 @@ MonoBehaviour:
     m_ControlHash: -371814159
     m_PrefName: Preview_InspectorPreview
   m_PreviewWindow: {fileID: 0}
-  m_LastInspectedObjectInstanceID: -52480
+  m_LastInspectedObjectInstanceID: 13916
   m_LastVerticalScrollValue: 0
 --- !u!114 &17
 MonoBehaviour:
