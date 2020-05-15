@@ -176,6 +176,7 @@ namespace JevLogin
                 foreach (var child in GetComponentsInChildren<Transform>())
                 {
                     child.parent = null;
+
                     var tempRigidBodyChild = child.GetComponent<Rigidbody>();
                     if (!tempRigidBodyChild)
                     {

@@ -9,7 +9,8 @@ namespace JevLogin
         public event Action<InfoCollision> OnApplyDamageChange = delegate { };
         public void OnCollision(InfoCollision info)
         {
-            OnApplyDamageChange.Invoke(new InfoCollision(info.Damage * 500, info.Contact, info.ObjectCollision, info.Direction));
+            OnApplyDamageChange.Invoke(new InfoCollision(info.Damage * 500,
+                info.Contact, info.ObjectCollision, info.Direction));
         }
     }
 }

@@ -21,7 +21,6 @@ namespace JevLogin
         public Vector3 Direction => _direction;
         public Transform ObjectCollision => _objectCollision;
         public ContactPoint Contact => _contact;
-
         public float Damage => _damage;
 
         #endregion
