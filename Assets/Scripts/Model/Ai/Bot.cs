@@ -27,7 +27,7 @@ namespace JevLogin
 
         #region Properties
 
-        public Transform Target { get; private set; }
+        public Transform Target { get; set; }
         public NavMeshAgent Agent { get; private set; }
         private StateBot StateBot
         {
@@ -61,14 +61,14 @@ namespace JevLogin
         #endregion
 
 
+        #region UnityMethods
+
         protected override void Awake()
         {
             base.Awake();
             Agent = GetComponent<NavMeshAgent>();
             _timeRemaining = new TimeRemaining(ResetStateBot, _waytTime);
         }
-
-
 
         private void OnEnable()
         {
@@ -99,6 +99,9 @@ namespace JevLogin
                 headBot.OnApplyDamageChange -= SetDamage;
             }
         }
+
+        #endregion
+
 
         #region IExecute
 
@@ -153,6 +156,7 @@ namespace JevLogin
         }
 
         #endregion
+
 
         #region Methods
 
