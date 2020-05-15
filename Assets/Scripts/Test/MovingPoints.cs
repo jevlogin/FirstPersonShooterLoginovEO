@@ -59,10 +59,10 @@ namespace JevLogin
                     DrawPoint(hit.point);
                 }
 
-                if (Time.deltaTime % 2 == 0)
+                if (Time.frameCount % 2 == 0)
                 {
                     NavMesh.CalculatePath(_startPoint, hit.point, NavMesh.AllAreas, _path);
-                    
+
                     var cornersArray = _points.ToArray().Concat(_path.corners);
 
                     _lineRenderer.positionCount = cornersArray.Length;
@@ -82,10 +82,6 @@ namespace JevLogin
 
         private void DrawPoint(Vector3 position)
         {
-            CustomDebug.IsDebug = true;
-            CustomDebug.Log("Добавили точку");
-            CustomDebug.IsDebug = false;
-
             var point = Instantiate(_point, position, Quaternion.identity);
             point.OnFinishChange += MovePoint;
             _points.Enqueue(point.transform.position);
@@ -94,16 +90,9 @@ namespace JevLogin
 
         private void MovePoint(GameObject obj)
         {
-            CustomDebug.IsDebug = true;
-            CustomDebug.Log("Подписались на событие точку");
-            CustomDebug.IsDebug = false;
-
             if (CurrentPoint == obj.transform.position)
             {
                 obj.GetComponent<DestroyPoint>().OnFinishChange -= MovePoint;
-                CustomDebug.IsDebug = true;
-                CustomDebug.Log("Удаляем точку");
-                CustomDebug.IsDebug = false;
 
                 Destroy(obj);
             }

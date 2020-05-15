@@ -86,6 +86,7 @@
     <Compile Include="Assets\Scripts\Enums\AmmunitionType.cs" />
     <Compile Include="Assets\Scripts\Enums\FlashLightActiveType.cs" />
     <Compile Include="Assets\Scripts\Enums\MouseButton.cs" />
+    <Compile Include="Assets\Scripts\Enums\MouseScrollWheel.cs" />
     <Compile Include="Assets\Scripts\Enums\StateBot.cs" />
     <Compile Include="Assets\Scripts\Helper\CustomDebug.cs" />
     <Compile Include="Assets\Scripts\Helper\Extention.cs" />
