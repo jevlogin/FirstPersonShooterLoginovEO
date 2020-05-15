@@ -33,14 +33,16 @@ namespace JevLogin
             ServiceLocator.SetService(new WeaponController());
             ServiceLocator.SetService(new InputController());
             ServiceLocator.SetService(new SelectionController());
+            ServiceLocator.SetService(new BotController());
 
-            _executeControllers = new IExecute[5];
+            _executeControllers = new IExecute[6];
 
             _executeControllers[0] = ServiceLocator.Resolve<TimeRemainingController>();
             _executeControllers[1] = ServiceLocator.Resolve<PlayerController>();
             _executeControllers[2] = ServiceLocator.Resolve<FlashLightController>();
             _executeControllers[3] = ServiceLocator.Resolve<InputController>();
             _executeControllers[4] = ServiceLocator.Resolve<SelectionController>();
+            _executeControllers[5] = ServiceLocator.Resolve<BotController>();
         }
 
         #endregion
@@ -59,9 +61,10 @@ namespace JevLogin
             }
 
             ServiceLocator.Resolve<Inventory>().Initialization();
-            ServiceLocator.Resolve<PlayerController>().On();
-            ServiceLocator.Resolve<SelectionController>().On();
             ServiceLocator.Resolve<InputController>().On();
+            ServiceLocator.Resolve<SelectionController>().On();
+            ServiceLocator.Resolve<PlayerController>().On();
+            ServiceLocator.Resolve<BotController>().On();
         }
 
         #endregion

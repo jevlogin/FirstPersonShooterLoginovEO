@@ -47,10 +47,10 @@ namespace JevLogin
                         Color = Color.yellow;
                         break;
                     case StateBot.Detected:
-                        Color = Color.yellow;
+                        Color = Color.red;
                         break;
                     case StateBot.Died:
-                        Color = Color.yellow;
+                        Color = Color.gray;
                         break;
                     default:
                         Color = Color.white;

@@ -7,7 +7,7 @@ namespace JevLogin
     {
         #region Fields
 
-        private readonly int _countBot = 5;
+        private readonly int _countBot = 50;
         private readonly List<Bot> _botList = new List<Bot>();
 
         #endregion

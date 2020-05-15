@@ -109,9 +109,12 @@ namespace JevLogin
 
         private void AskColor(Transform objectTransform, Color color)
         {
-            foreach (var currentMaterial in objectTransform.GetComponent<Renderer>().materials)
+            if (objectTransform.TryGetComponent<Renderer>(out var renderer))
             {
-                currentMaterial.color = color;
+                foreach (var currentMaterial in renderer.materials)
+                {
+                    currentMaterial.color = color;
+                } 
             }
             if (objectTransform.childCount <= 0) return;
 
