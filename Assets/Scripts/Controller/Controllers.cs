@@ -24,15 +24,8 @@ namespace JevLogin
 
         public Controllers()
         {
-            IMotor motor = default;
-            if (Application.platform == RuntimePlatform.PS4)
-            {
-                //todo SonyPlaystation
-            }
-            else
-            {
-                motor = new UnitMotor(ServiceLocatorMonoBehaviour.GetService<CharacterController>());
-            }
+            IMotor motor =  new UnitMotor(ServiceLocatorMonoBehaviour.GetService<CharacterController>());
+
             ServiceLocator.SetService(new TimeRemainingController());
             ServiceLocator.SetService(new Inventory());
             ServiceLocator.SetService(new PlayerController(motor));
