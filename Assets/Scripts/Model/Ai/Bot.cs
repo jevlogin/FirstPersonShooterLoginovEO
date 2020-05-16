@@ -5,20 +5,20 @@ using UnityEngine.AI;
 
 namespace JevLogin
 {
-    public class Bot : BaseObjectScene, IExecute
+    public class Bot : BaseObjectScene, IExecute, ISelectObject
     {
         #region Fields
 
         public Weapon Weapon;   //todo с разным оружием
         public Vision Vision;
-        private StateBot _stateBot;
         private Vector3 _point;
+        private StateBot _stateBot;
         private ITimeRemaining _timeRemaining;
 
-        private float _waytTime = 3;
+        private float _waytTime = 3.0f;
         private float _stoppingDistance = 2.0f;
 
-        public float HealthPoint = 100;
+        public float HealthPoint = 100.0f;
 
         public event Action<Bot> OnDieChange;
 
@@ -132,7 +132,7 @@ namespace JevLogin
                         }
                     }
                 }
-                if (Vision.VisionM(transform, Target))
+                if (Vision.VisionMinimumDistance(transform, Target))
                 {
                     StateBot = StateBot.Detected;
                 }
@@ -143,15 +143,18 @@ namespace JevLogin
                 {
                     Agent.stoppingDistance = _stoppingDistance;
                 }
-                if (Vision.VisionM(transform, Target))
+                if (Vision.VisionMinimumDistance(transform, Target))
                 {
                     Weapon.Fire();
                 }
+                //todo потеря персонажа
+                //     сделать Vision.VisionMaximumDistance(transform, Target)  => MovePoint(Target.position);
+                //     и else StateBot = StateBot.None;
                 else
                 {
                     MovePoint(Target.position);
                 }
-                //todo потеря персонажа
+                
             }
         }
 
@@ -200,6 +203,10 @@ namespace JevLogin
             Agent.SetDestination(point);
         }
 
+        public string GetMessage()
+        {
+            return $"{gameObject.name} - {HealthPoint}";
+        }
         #endregion
     }
 }

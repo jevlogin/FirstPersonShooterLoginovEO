@@ -8,7 +8,7 @@ namespace JevLogin
     {
         #region Fields
 
-        public float HealthPoint = 100.0f;
+        public float HealthPoint;
         private bool _isDead;
         private float _timeToDestroy = 10.0f;
         //todo дописать поглащение урона

@@ -16,7 +16,7 @@ namespace JevLogin
 
         #region Methods
 
-        public bool VisionM(Transform player, Transform target)
+        public bool VisionMinimumDistance(Transform player, Transform target)
         {
             return Distance(player, target) && Angle(player, target) && !CheckBloked(player, target);
         }

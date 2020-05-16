@@ -39,7 +39,10 @@ namespace JevLogin
 
             if (Physics.Raycast(_mainCamera.ScreenPointToRay(_center), out var hit, _dedicateDistance))
             {
-                SelectObject(hit.collider.gameObject);
+                if (Time.frameCount % 20 == 0)
+                {
+                    SelectObject(hit.collider.gameObject);
+                }
                 _nullString = false;
             }
             else if (!_nullString)
@@ -62,6 +65,8 @@ namespace JevLogin
                         break;
                     case Wall wall:
                         break;
+                    case Bot bot:
+                        break;
                     default:
                         break;
                 }
@@ -77,7 +82,6 @@ namespace JevLogin
             if (_selectedObject != null)
             {
                 UiInterface.SelectionObjectMessageUi.Text = _selectedObject.GetMessage();
-                //todo реализовать показ здоровья противника
                 _isSelectedObject = true;
             }
             else
@@ -86,7 +90,7 @@ namespace JevLogin
                 _isSelectedObject = false;
             }
 
-            _dedicatedObject = gameObject;
+            //_dedicatedObject = gameObject;
         }
 
         #endregion

@@ -1,13 +1,14 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 
+
 namespace JevLogin
 {
     public class BotController : BaseController, IExecute, IInitialization
     {
         #region Fields
 
-        private readonly int _countBot = 50;
+        private readonly int _countBot = 5;
         private readonly List<Bot> _botList = new List<Bot>();
 
         #endregion
@@ -17,10 +18,8 @@ namespace JevLogin
 
         public void Execute()
         {
-            if (!IsActive)
-            {
-                return;
-            }
+            if (!IsActive) return;
+
             for (var i = 0; i < _botList.Count; i++)
             {
                 _botList[i].Execute();
@@ -36,7 +35,7 @@ namespace JevLogin
         {
             for (var index = 0; index < _countBot; index++)
             {
-                var tempBot = UnityEngine.Object.Instantiate(ServiceLocatorMonoBehaviour.GetService<Reference>().Bot,
+                var tempBot = Object.Instantiate(ServiceLocatorMonoBehaviour.GetService<Reference>().Bot,
                     Patrol.GenericPoint(ServiceLocatorMonoBehaviour.GetService<CharacterController>().transform),
                     Quaternion.identity);
 
