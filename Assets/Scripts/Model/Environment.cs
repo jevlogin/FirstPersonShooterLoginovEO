@@ -16,10 +16,8 @@ namespace JevLogin
 
         public void OnCollision(InfoCollision info)
         {
-            if (_projector == null)
-            {
-                return;
-            }
+            if (_projector == null) return;
+
             var projectorRotation = Quaternion.FromToRotation(-Vector3.forward, info.Contact.normal);
             var obj = Instantiate(_projector, info.Contact.point + info.Contact.normal * 0.25f,
                 projectorRotation, info.ObjectCollision);   //manager;
