@@ -1,6 +1,6 @@
 ﻿namespace JevLogin
 {
-    public sealed class Wall : BaseObjectScene, ISelectObject
+    public sealed class Wall : Environment, ISelectObject
     {
         #region Methods
 

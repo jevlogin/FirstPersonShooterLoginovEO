@@ -7,7 +7,10 @@ namespace JevLogin
     {
         #region Fields
 
+        private readonly Transform _objectCollision;
+        private readonly ContactPoint _contact;
         private readonly Vector3 _direction;
+
         private readonly float _damage;
 
         #endregion
@@ -16,6 +19,8 @@ namespace JevLogin
         #region Properties
 
         public Vector3 Direction => _direction;
+        public Transform ObjectCollision => _objectCollision;
+        public ContactPoint Contact => _contact;
         public float Damage => _damage;
 
         #endregion
@@ -23,10 +28,12 @@ namespace JevLogin
 
         #region ClassLifeCycle
 
-        public InfoCollision(float damage, Vector3 direction = default)
+        public InfoCollision(float damage, ContactPoint contact, Transform objectCollision, Vector3 direction = default)
         {
             _damage = damage;
             _direction = direction;
+            _contact = contact;
+            _objectCollision = objectCollision;
         }
 
         #endregion

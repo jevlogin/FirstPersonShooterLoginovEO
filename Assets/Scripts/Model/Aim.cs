@@ -8,7 +8,7 @@ namespace JevLogin
     {
         #region Fields
 
-        public float HealthPoint = 100.0f;
+        public float HealthPoint;
         private bool _isDead;
         private float _timeToDestroy = 10.0f;
         //todo дописать поглащение урона
@@ -25,7 +25,7 @@ namespace JevLogin
 
         #region Methods
 
-        public void CollisionEnter(InfoCollision info)
+        public void OnCollision(InfoCollision info)
         {
             if (_isDead) return;
             if (HealthPoint > 0)
