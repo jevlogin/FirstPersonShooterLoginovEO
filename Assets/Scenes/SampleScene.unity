@@ -803,7 +803,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75d685d153403fe46a9e178b0c6449fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Bot: {fileID: 1813930744629712600, guid: a3fce218eae36c64ba6e9c6fe4d340f8, type: 3}
+  Bot: {fileID: 416770596}
 --- !u!1001 &168232864
 PrefabInstance:
   m_ObjectHideFlags: 0
