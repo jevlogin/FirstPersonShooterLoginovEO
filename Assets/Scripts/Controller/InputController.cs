@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 
 namespace JevLogin
@@ -10,6 +11,7 @@ namespace JevLogin
         private KeyCode _activateFlashLight = KeyCode.F;
         private KeyCode _cancel = KeyCode.Escape;
         private KeyCode _reloadClip = KeyCode.R;
+        private KeyCode _removeWeapon = KeyCode.G;
         private int _mouseButton = (int)MouseButton.LeftButton;
 
         #endregion
@@ -35,12 +37,23 @@ namespace JevLogin
             {
                 ServiceLocator.Resolve<FlashLightController>().Switch(ServiceLocator.Resolve<Inventory>().FlashLightModel);
             }
-
-            //todo реализовать выбор оружия по колесику мышки
-
-            if (Input.GetKeyDown(KeyCode.Alpha1))
+            else if (Input.GetKeyDown(KeyCode.Alpha1))
             {
                 SelectWeapon(0);
+            }
+            else if (Input.GetKeyDown(_cancel))
+            {
+                ServiceLocator.Resolve<WeaponController>().Off();
+                ServiceLocator.Resolve<FlashLightController>().Off();
+            }
+            else if (Input.GetKeyDown(_reloadClip))
+            {
+                ServiceLocator.Resolve<WeaponController>().ReloadClip();
+            }
+            else if (Input.GetKeyDown(_removeWeapon))
+            {
+                ServiceLocator.Resolve<WeaponController>().Off();
+                ServiceLocator.Resolve<Inventory>().RemoveWeapon();
             }
 
             if (Input.GetMouseButton(_mouseButton))
@@ -51,32 +64,42 @@ namespace JevLogin
                 }
             }
 
-            if (Input.GetKeyDown(_cancel))
+            if (Input.GetAxis("Mouse ScrollWheel") > 0)
             {
-                ServiceLocator.Resolve<WeaponController>().Off();
-                ServiceLocator.Resolve<FlashLightController>().Off();
+                MouseScroll(MouseScrollWheel.Up);
             }
-
-            if (Input.GetKeyDown(_reloadClip))
+            if (Input.GetAxis("Mouse ScrollWheel") < 0)
             {
-                if (ServiceLocator.Resolve<WeaponController>().IsActive)
-                {
-                    ServiceLocator.Resolve<WeaponController>().ReloadClip();
-                }
+                MouseScroll(MouseScrollWheel.Down);
             }
         }
 
+        private void MouseScroll(MouseScrollWheel value)
+        {
+            var tempWeapon = ServiceLocator.Resolve<Inventory>().SelectWeapon(value);
+            SelectWeapon(tempWeapon);
+        }
+
         /// <summary>
-        /// Выбор оружия
+        /// Выбор оружия по индексу
         /// </summary>
-        /// <param name="indexWeapon">Номер оружия</param>
+        /// <param name="indexWeapon">Индекс оружия</param>
         private void SelectWeapon(int indexWeapon)
         {
+            var tempWeapon = ServiceLocator.Resolve<Inventory>().SelectWeapon(indexWeapon);
+            SelectWeapon(tempWeapon);
+        }
+
+        /// <summary>
+        /// Выбор оружия по оружию
+        /// </summary>
+        /// <param name="weapon">Само оружие</param>
+        private void SelectWeapon(Weapon weapon)
+        {
             ServiceLocator.Resolve<WeaponController>().Off();
-            var tempWeapon = ServiceLocator.Resolve<Inventory>().Weapons[indexWeapon];  //todo инкапсулировать
-            if (tempWeapon != null)
+            if (weapon != null)
             {
-                ServiceLocator.Resolve<WeaponController>().On(tempWeapon);
+                ServiceLocator.Resolve<WeaponController>().On(weapon);
             }
         }
 

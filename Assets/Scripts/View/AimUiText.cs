@@ -1,14 +1,22 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
+
 
 namespace JevLogin
 {
-    public class AimUiText : MonoBehaviour
+    public sealed class AimUiText : MonoBehaviour
     {
+        #region Fields
+
         private Aim[] _aims;
         private Text _text;
+
         private int _countPoint;
+
+        #endregion
+
+
+        #region UnityMethods
 
         private void Awake()
         {
@@ -32,6 +40,11 @@ namespace JevLogin
             }
         }
 
+        #endregion
+
+
+        #region Methods
+
         private void UpdatePoint()
         {
             var pointText = "очков";
@@ -50,5 +63,7 @@ namespace JevLogin
             }
             _text.text = $"Вы заработали {_countPoint} {pointText}";
         }
+
+        #endregion
     }
 }

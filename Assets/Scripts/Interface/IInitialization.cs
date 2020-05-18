@@ -1,7 +1,7 @@
 ﻿namespace JevLogin
 {
-	public interface IInitialization
-	{
-		void Initialization();
-	}
+    public interface IInitialization
+    {
+        void Initialization();
+    }
 }

@@ -6,14 +6,26 @@ namespace JevLogin
 {
     public class Aim : MonoBehaviour, ICollision, ISelectObject
     {
-        public event Action OnPointChange = delegate { };
+        #region Fields
 
-        public float HealthPoint = 100.0f;
+        public float HealthPoint;
         private bool _isDead;
         private float _timeToDestroy = 10.0f;
         //todo дописать поглащение урона
 
-        public void CollisionEnter(InfoCollision info)
+        #endregion
+
+
+        #region Event
+
+        public event Action OnPointChange = delegate { };
+
+        #endregion
+
+
+        #region Methods
+
+        public void OnCollision(InfoCollision info)
         {
             if (_isDead) return;
             if (HealthPoint > 0)
@@ -39,5 +51,6 @@ namespace JevLogin
             return $"{gameObject.name} - {HealthPoint}";
         }
 
+        #endregion
     }
 }

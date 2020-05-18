@@ -98,10 +98,8 @@ namespace JevLogin
         private void AskLayer(Transform objectTransform, int layer)
         {
             objectTransform.gameObject.layer = layer;
-            if (objectTransform.childCount <= 0)
-            {
-                return;
-            }
+
+            if (objectTransform.childCount <= 0) return;
 
             foreach (Transform child in objectTransform)
             {
@@ -111,14 +109,15 @@ namespace JevLogin
 
         private void AskColor(Transform objectTransform, Color color)
         {
-            foreach (var currentMaterial in objectTransform.GetComponent<Renderer>().materials)
+            if (objectTransform.TryGetComponent<Renderer>(out var renderer))
             {
-                currentMaterial.color = color;
+                foreach (var currentMaterial in renderer.materials)
+                {
+                    currentMaterial.color = color;
+                } 
             }
-            if (objectTransform.childCount <= 0)
-            {
-                return;
-            }
+            if (objectTransform.childCount <= 0) return;
+
             foreach (Transform item in objectTransform)
             {
                 AskColor(item, color);

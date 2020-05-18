@@ -2,46 +2,49 @@
 using UnityEngine.UI;
 
 
-public class FlashLightUiBar : MonoBehaviour
+namespace JevLogin
 {
-    #region Fields
-
-    private Image _imageUiBar;
-
-    #endregion
-
-
-    #region Properties
-
-    public float Fill
+    public sealed class FlashLightUiBar : MonoBehaviour
     {
-        set => _imageUiBar.fillAmount = value;
+        #region Fields
+
+        private Image _imageUiBar;
+
+        #endregion
+
+
+        #region Properties
+
+        public float Fill
+        {
+            set => _imageUiBar.fillAmount = value;
+        }
+
+        #endregion
+
+
+        #region UnityMethods
+
+        private void Awake()
+        {
+            _imageUiBar = GetComponent<Image>();
+        }
+
+        #endregion
+
+
+        #region Methods
+
+        public void SetActive(bool value)
+        {
+            _imageUiBar.gameObject.SetActive(value);
+        }
+
+        public void SetColor(Color color)
+        {
+            _imageUiBar.color = color;
+        }
+
+        #endregion
     }
-
-    #endregion
-
-
-    #region UnityMethods
-
-    private void Awake()
-    {
-        _imageUiBar = GetComponent<Image>();
-    }
-
-    #endregion
-
-
-    #region Methods
-
-    public void SetActive(bool value)
-    {
-        _imageUiBar.gameObject.SetActive(value);
-    }
-
-    public void SetColor(Color color)
-    {
-        _imageUiBar.color = color;
-    }
-
-    #endregion
 }

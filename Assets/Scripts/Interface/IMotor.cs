@@ -1,7 +1,7 @@
 ﻿namespace JevLogin
 {
-	public interface IMotor
-	{
-		void Move();
-	}
+    public interface IMotor
+    {
+        void Move();
+    }
 }
