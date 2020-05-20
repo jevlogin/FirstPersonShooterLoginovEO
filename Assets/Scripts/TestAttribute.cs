@@ -4,9 +4,5 @@ using UnityEngine;
 
 public class TestAttribute : MonoBehaviour
 {
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    
 }
