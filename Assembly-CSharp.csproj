@@ -108,6 +108,7 @@
     <Compile Include="Assets\Scripts\Test\DestroyPoint.cs" />
     <Compile Include="Assets\Scripts\Test\MovingPoints.cs" />
     <Compile Include="Assets\Scripts\Test\TestMove.cs" />
+    <Compile Include="Assets\Scripts\TestAttribute.cs" />
     <Compile Include="Assets\Scripts\View\AimUiText.cs" />
     <Compile Include="Assets\Scripts\View\FlashLightUi.cs" />
     <Compile Include="Assets\Scripts\View\FlashLightUiBar.cs" />
