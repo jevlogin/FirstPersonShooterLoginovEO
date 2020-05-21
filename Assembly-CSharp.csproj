@@ -131,6 +131,7 @@
     <Compile Include="Assets\Scripts\View\SelectionObjectMessageUi.cs" />
     <Compile Include="Assets\Scripts\View\UiInterface.cs" />
     <Compile Include="Assets\Scripts\View\WeaponUiText.cs" />
+    <Compile Include="Assets\TestBehaviour.cs" />
     <None Include="Assets\SampleScenes\Shaders\Skybox-Procedural.shader" />
     <Reference Include="UnityEngine">
       <HintPath>C:/Program Files/Unity/Hub/Editor/2019.3.14f1/Editor/Data/Managed/UnityEngine/UnityEngine.dll</HintPath>
