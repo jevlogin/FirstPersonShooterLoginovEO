@@ -8,7 +8,8 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <RootNamespace></RootNamespace>
+    <RootNamespace>
+    </RootNamespace>
     <ProjectGuid>{62715E33-143D-2274-C3D8-BE850887B295}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
@@ -63,7 +64,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\CreateWayPoint.cs" />
+    <Compile Include="Assets\Scripts\Test\CreateWayPoint.cs" />
     <Compile Include="Assets\SampleScenes\Menu\Scripts\MenuSceneLoader.cs" />
     <Compile Include="Assets\SampleScenes\Menu\Scripts\PauseMenu.cs" />
     <Compile Include="Assets\SampleScenes\Menu\Scripts\SceneAndURLLoader.cs" />
@@ -93,6 +94,7 @@
     <Compile Include="Assets\Scripts\Helper\CustomDebug.cs" />
     <Compile Include="Assets\Scripts\Helper\Extention.cs" />
     <Compile Include="Assets\Scripts\Helper\InfoCollision.cs" />
+    <Compile Include="Assets\Scripts\Helper\PathBot.cs" />
     <Compile Include="Assets\Scripts\Helper\Reference.cs" />
     <Compile Include="Assets\Scripts\Helper\SerializableGameObject.cs" />
     <Compile Include="Assets\Scripts\Interface\ICollision.cs" />
