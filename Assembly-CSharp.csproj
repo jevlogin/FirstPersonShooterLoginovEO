@@ -123,6 +123,7 @@
     <Compile Include="Assets\Scripts\ServiceLocator\ServiceLocatorMonoBehaviour.cs" />
     <Compile Include="Assets\Scripts\Test\CreateWayPoint.cs" />
     <Compile Include="Assets\Scripts\Test\DestroyPoint.cs" />
+    <Compile Include="Assets\Scripts\Test\GeekBrains.cs" />
     <Compile Include="Assets\Scripts\Test\MovingPoints.cs" />
     <Compile Include="Assets\Scripts\Test\TestAttribute.cs" />
     <Compile Include="Assets\Scripts\Test\TestBehaviour.cs" />
