@@ -127,6 +127,7 @@
     <Compile Include="Assets\Scripts\Test\MovingPoints.cs" />
     <Compile Include="Assets\Scripts\Test\TestAttribute.cs" />
     <Compile Include="Assets\Scripts\Test\TestBehaviour.cs" />
+    <Compile Include="Assets\Scripts\Test\TestEditorBehaviour.cs" />
     <Compile Include="Assets\Scripts\Test\TestMove.cs" />
     <Compile Include="Assets\Scripts\View\AimUiText.cs" />
     <Compile Include="Assets\Scripts\View\FlashLightUi.cs" />
