@@ -1,5 +1,6 @@
 ﻿using System;
 using UnityEditor;
+using UnityEditor.SceneManagement;
 using UnityEngine;
 
 namespace JevLogin
@@ -27,11 +28,16 @@ namespace JevLogin
                     SetObjectDirty(_testTarget.gameObject);
                 }
             }
+            Selection.activeGameObject = _testTarget.gameObject;
         }
 
         private void SetObjectDirty(GameObject gameObject)
         {
-
+            if (!Application.isPlaying)
+            {
+                EditorUtility.SetDirty(gameObject);
+                EditorSceneManager.MarkSceneDirty(gameObject.scene);
+            }
         }
     }
 }
