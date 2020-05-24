@@ -11,13 +11,13 @@ namespace JevLogin
         public float RadiusTop = 0.0f;
         public float RadiusBottom = 1.0f;
         public float Length = 1.0f;
-        public float OpeningAngle = 0.0f;
+        public float OpeningAngle = 0.0f; // if >0, create a cone with this angle by setting radiusTop to 0, and adjust radiusBottom according to length;
         public bool Outside = true;
         public bool Inside = false;
-        public bool AddCollide = false;
+        public bool AddCollider = false;
 
         [MenuItem("GameObject/Create Other/Cone")]
-        private void CreateWizzard()
+        private void CreateWizard()
         {
             ScriptableWizard.DisplayWizard("Create Cone", typeof(CreateCone));
         }
@@ -45,7 +45,32 @@ namespace JevLogin
                 Vector3[] normals = new Vector3[2 * multiplier * NumVertices];
                 Vector3[] uvs = new Vector3[2 * multiplier * NumVertices];
                 int[] tris;
+                float slope = Mathf.Atan((RadiusBottom - RadiusTop) / Length); // (rad difference)/height
+                float slopeSin = Mathf.Sin(slope);
+                float slopeCos = Mathf.Cos(slope);
+                int i;
 
+                for (i = 0; i < NumVertices; i++)
+                {
+                    float angle = 2 * Mathf.PI * i / NumVertices;
+                    float angleSin = Mathf.Sin(angle);
+                    float angleCos = Mathf.Cos(angle);
+                    float angleHalf = 2 * Mathf.PI * (i * 0.5f) / NumVertices; // for degenerated normals at cone tips
+                    float angleHalfSin = Mathf.Sin(angleHalf);
+                    float angleHalfCos = Mathf.Cos(angleHalf);
+
+                    vertices[i] = new Vector3(RadiusTop * angleCos, RadiusTop * angleSin, 0);
+                    vertices[i + NumVertices] = new Vector3(RadiusBottom * angleCos, RadiusBottom * angleSin, Length);
+
+                    if (RadiusTop == 0)
+                    {
+                        normals[i] = new Vector3(angleHalfCos * slopeCos, angleHalfSin * slopeCos, -slopeSin);
+                    }
+                    else
+                    {
+
+                    }
+                }
             }
         }
     }
