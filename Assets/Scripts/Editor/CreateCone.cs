@@ -6,6 +6,8 @@ namespace JevLogin
 {
     public class CreateCone : ScriptableWizard
     {
+        #region Fields
+
         [SerializeField]
         public int NumVertices = 10;
         public float RadiusTop = 0.0f;
@@ -16,8 +18,11 @@ namespace JevLogin
         public bool Inside = false;
         public bool AddCollider = false;
 
+        #endregion
+
+
         [MenuItem("GameObject/Create Other/Cone")]
-        private void CreateWizard()
+        private static void CreateWizard()
         {
             ScriptableWizard.DisplayWizard("Create Cone", typeof(CreateCone));
         }
@@ -43,7 +48,7 @@ namespace JevLogin
                 int offset = (Outside && Inside ? 2 * NumVertices : 0);
                 Vector3[] vertices = new Vector3[2 * multiplier * NumVertices];
                 Vector3[] normals = new Vector3[2 * multiplier * NumVertices];
-                Vector3[] uvs = new Vector3[2 * multiplier * NumVertices];
+                Vector2[] uvs = new Vector2[2 * multiplier * NumVertices];
                 int[] tris;
                 float slope = Mathf.Atan((RadiusBottom - RadiusTop) / Length); // (rad difference)/height
                 float slopeSin = Mathf.Sin(slope);
@@ -68,10 +73,179 @@ namespace JevLogin
                     }
                     else
                     {
+                        normals[i] = new Vector3(angleCos * slopeCos, angleSin * slopeCos, -slopeSin);
+                    }
 
+                    if (RadiusBottom == 0)
+                    {
+                        normals[i + NumVertices] = new Vector3(angleHalfCos * slopeCos, angleHalfSin * slopeCos, -slopeSin);
+                    }
+                    else
+                    {
+                        normals[i + NumVertices] = new Vector3(angleCos * slopeCos, angleSin * slopeCos, -slopeSin);
+                    }
+
+                    uvs[i] = new Vector2(1.0f * i / NumVertices, 1);
+                    uvs[i + NumVertices] = new Vector2(1.0f * i / NumVertices, 0);
+
+                    if (Outside && Inside)
+                    {
+                        // vertices and uvs are identical on inside and outside, so just copy
+                        vertices[i + 2 * NumVertices] = vertices[i];
+                        vertices[i + 3 * NumVertices] = vertices[i + NumVertices];
+                        uvs[i + 2 * NumVertices] = uvs[i];
+                        uvs[i + 3 * NumVertices] = uvs[i + NumVertices];
+                    }
+
+                    if (Inside)
+                    {
+                        //  invert normals
+                        normals[i + offset] = -normals[i];
+                        normals[i + NumVertices + offset] = -normals[i + NumVertices];
                     }
                 }
+                mesh.vertices = vertices;
+                mesh.normals = normals;
+                mesh.uv = uvs;
+
+                // create triangles
+                // here we need to take care of point order, depending on inside and outside
+                int cnt = 0;
+                if (RadiusTop == 0)
+                {
+                    //  top cone
+                    tris = new int[NumVertices * 3 * multiplier];
+                    if (Outside)
+                    {
+                        for (i = 0; i < NumVertices; i++)
+                        {
+                            tris[cnt++] = i + NumVertices;
+                            tris[cnt++] = i;
+                            if (i == NumVertices - 1)
+                            {
+                                tris[cnt++] = NumVertices;
+                            }
+                            else
+                            {
+                                tris[cnt++] = i + 1 + NumVertices;
+                            }
+                        }
+                    }
+                    if (Inside)
+                    {
+                        for (i = offset; i < NumVertices; i++)
+                        {
+                            tris[cnt++] = i;
+                            tris[cnt++] = i + NumVertices;
+                            if (i == NumVertices - 1 + offset)
+                            {
+                                tris[cnt++] = NumVertices + offset;
+                            }
+                            else
+                            {
+                                tris[cnt++] = i + 1 + NumVertices;
+                            }
+                        }
+                    }
+                }
+                else if (RadiusBottom == 0)
+                {
+                    //  bottom cone
+                    tris = new int[NumVertices * 3 * multiplier];
+                    if (Outside)
+                    {
+                        for (i = 0; i < NumVertices; i++)
+                        {
+                            tris[cnt++] = i;
+                            if (i == NumVertices - 1)
+                            {
+                                tris[cnt++] = 0;
+                            }
+                            else
+                            {
+                                tris[cnt++] = i + 1;
+                            }
+                            tris[cnt++] = i + NumVertices;
+                        }
+                    }
+                    if (Inside)
+                    {
+                        for (i = offset; i < NumVertices + offset; i++)
+                        {
+                            if (i == NumVertices - 1 + offset)
+                            {
+                                tris[cnt++] = offset;
+                            }
+                            else
+                            {
+                                tris[cnt++] = i + 1;
+                            }
+                            tris[cnt++] = i;
+                            tris[cnt++] = i + NumVertices;
+                        }
+                    }
+                }
+                else
+                {
+                    // truncated cone
+                    tris = new int[NumVertices * 6 * multiplier];
+                    if (Outside)
+                    {
+                        for (i = 0; i < NumVertices; i++)
+                        {
+                            int ip1 = i + 1;
+                            if (ip1 == NumVertices)
+                            {
+                                ip1 = 0;
+                            }
+
+                            tris[cnt++] = i;
+                            tris[cnt++] = ip1;
+                            tris[cnt++] = i + NumVertices;
+
+                            tris[cnt++] = ip1 + NumVertices;
+                            tris[cnt++] = i + NumVertices;
+                            tris[cnt++] = ip1;
+                        }
+                    }
+                    if (Inside)
+                    {
+                        for (i = offset; i < NumVertices + offset; i++)
+                        {
+                            int ip1 = i + 1;
+                            if (ip1 == NumVertices + offset)
+                            {
+                                ip1 = offset;
+                            }
+
+                            tris[cnt++] = ip1;
+                            tris[cnt++] = i;
+                            tris[cnt++] = i + NumVertices;
+
+                            tris[cnt++] = i + NumVertices;
+                            tris[cnt++] = ip1 + NumVertices;
+                            tris[cnt++] = ip1;
+                        }
+                    }
+                }
+                mesh.triangles = tris;
+                AssetDatabase.CreateAsset(mesh, meshPrefabPath);
+                AssetDatabase.SaveAssets();
             }
+
+            MeshFilter mf = newCone.AddComponent<MeshFilter>();
+            mf.mesh = mesh;
+
+            newCone.AddComponent<MeshRenderer>();
+
+            if (AddCollider)
+            {
+                MeshCollider mc = newCone.AddComponent<MeshCollider>();
+                mc.sharedMesh = mf.sharedMesh;
+            }
+
+            Selection.activeObject = newCone;
+
         }
     }
 }
